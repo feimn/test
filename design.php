@@ -43,16 +43,19 @@ class Registree
 
     public static function set($aliase,$object)
     {
+        // 将对象注册到树上
         self::$instance[$aliase] = $object;
     }
 
     public static function get($aliase)
     {
+        // 获取某个挂在树上的对象
          return self::$instance[$aliase];
     }
 
     public static function _unset($aliase)
     {
+        // 移除某个注册到树上的对象
         unset(self::$instance[$aliase]);
     }
 }
