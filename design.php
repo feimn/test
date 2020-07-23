@@ -1,5 +1,6 @@
 <?php
 
+// 单例模式
 
 class Foo
 {
@@ -19,9 +20,12 @@ class Foo
         if(!self::$instance instanceof self){
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 }
+
+//工厂模式
 
 class Factory
 {
@@ -31,33 +35,36 @@ class Factory
     }
 }
 
+// 注册数模式
 
-class designTree
+class Registree
 {
-   protected static $objects;
+    protected static $instance;
 
-   public static function  set($aliase,$object) {
-       self::$objects[$aliase] = $object;
-   }
+    public static function set($aliase,$object)
+    {
+        self::$instance[$aliase] = $object;
+    }
 
-   public static function get($aliase){
-       return self::$objects[$aliase];
-   }
+    public static function get($aliase)
+    {
+         return self::$instance[$aliase];
+    }
 
     public static function _unset($aliase)
     {
-        unset(self::$objects[$aliase]);
+        unset(self::$instance[$aliase]);
     }
-
 }
 
-designTree::set('object',Factory::getInstance());
+ Registree::set('obj',Factory::getInstance());
 
-designTree::set('object1',Factory::getInstance());
+ Registree::set('obj1',Factory::getInstance());
 
-$obj = designTree::get('object');
+$obj = Registree::get('obj');
 
-$obj1 = designTree::get('object1');
+$obj1 = Registree::get('obj1');
+
 
 
 echo"<pre/>";
@@ -67,4 +74,8 @@ echo"<hr/>";
 echo"<pre/>";
 var_dump($obj1);
 echo"<hr/>";
+
+
+
+
 
