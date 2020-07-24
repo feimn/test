@@ -99,6 +99,57 @@ function kingOfMonky($n,$m){
 
 }
 
+
+// 二分查找   1 2 3 4 5 6 7 8
+function bin_search($arr,$num)
+{
+    $low = 0;
+    $high = count($arr)-1;
+
+    while($low <= $high)
+    {
+        $mid = intval(($low+$high)/2);
+
+        if($arr[$mid] > $num){
+            $high = $mid - 1;
+        }elseif($arr[$mid] < $num){
+            $low = $mid + 1;
+        }else{
+            return $mid;
+        }
+
+    }
+
+    return -1;
+}
+
+//$arr = [1,2,4,7,9,11,57,78,99];
+//$key = bin_search($arr,99);
+//print_r($key);
+
+// 二分查找的递归用法
+
+function bin_search_recursion($array,  $low, $high, $k){
+
+    if ($low <= $high){
+        $mid =  intval(($low+$high)/2 );
+        if ($array[$mid] ==  $k){
+            return $mid;
+        }elseif ( $k < $array[$mid]){
+            return  bin_search_recursion($array, $low,  $mid-1, $k);
+        }else{
+            return  bin_search_recursion($array, $mid+ 1, $high, $k);
+        }
+    }
+
+    return -1;
+
+}
+
+$arr = [1,2,4,7,9,11,57,78,99];
+$key = bin_search_recursion($arr,0,count($arr)-1,78);
+print_r($key);
+
 //echo"<pre/>";
 //var_dump(kingOfMonky(10,4));  //            4
 
@@ -115,5 +166,5 @@ function feibo($n){
     return feibo($n-1)+feibo($n-2);
 }
 
-echo"<pre/>";
-var_dump(feibo(20));
+//echo"<pre/>";
+//var_dump(feibo(20));
