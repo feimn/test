@@ -99,7 +99,7 @@ function kingOfMonky($n,$m){
 
 }
 
-kingOfMonky(10,3);
+//kingOfMonky(10,3);
 
 // 二分查找   1 2 3 4 5 6 7 8
 function bin_search($arr,$num)
