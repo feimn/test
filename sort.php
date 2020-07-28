@@ -146,9 +146,9 @@ function bin_search_recursion($array,  $low, $high, $k){
 
 }
 
-$arr = [1,2,4,7,9,11,57,78,99];
-$key = bin_search_recursion($arr,0,count($arr)-1,78);
-print_r($key);
+//$arr = [1,2,4,7,9,11,57,78,99];
+//$key = bin_search_recursion($arr,0,count($arr)-1,78);
+//print_r($key);
 
 //echo"<pre/>";
 //var_dump(kingOfMonky(10,4));  //            4
@@ -168,3 +168,40 @@ function feibo($n){
 
 //echo"<pre/>";
 //var_dump(feibo(20));
+
+// 字符串的长度 实现的原理
+function _strlen($str)
+{
+    if($str== '') return 0;
+
+    $count = 0;
+
+    while(1){
+        if($str[$count] != NUll){
+            $count++;
+            continue;
+        }else{
+            break;
+        }
+    }
+
+    return $count;
+}
+
+//  字符串的反转
+
+function _strrev($str)   {
+
+    if ($str == '') return 0;
+
+    for ($i=(strlen($str)-1); $i>=0; $i--){
+        $rev .= $str[$i];
+    }
+
+    return $rev;
+}
+
+
+
+
+
