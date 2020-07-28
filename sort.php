@@ -91,14 +91,15 @@ function kingOfMonky($n,$m){
 
             unset($arr[$i]);
         }
-
+    // 循环 $i++
         $i++;
     }
-
-    return $arr;
+    echo"<hr/>";
+    echo"第".implode('',$arr)."只猴子是猴王";
 
 }
 
+kingOfMonky(10,3);
 
 // 二分查找   1 2 3 4 5 6 7 8
 function bin_search($arr,$num)
