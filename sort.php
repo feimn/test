@@ -202,6 +202,35 @@ function _strrev($str)   {
     return $rev;
 }
 
+// php经典算法题之分苹果
+
+function shareApple()
+{
+  for($i = 1; ; $i++){
+      if($i%5 == 1){
+          $t = $i- round($i/5) - 1;
+          if($t%5 == 1){
+              $r = $t- round($t/5) - 1;
+              if($r%5 == 1){
+                  $s = $r- round($r/5) - 1;
+                  if($s%5 == 1){
+                      $x = $s- round($s/5) - 1;
+                      if($x%5 == 1){
+                          $y = $x- round($x/5) - 1;
+                          if($y%5 == 1){
+                              echo $i;
+                              break;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+//shareApple();
+
 
 
 
