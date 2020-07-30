@@ -95,7 +95,7 @@ function kingOfMonky($n,$m){
         $i++;
     }
     echo"<hr/>";
-    echo"第".implode('',$arr)."只猴子是猴王";
+    echo"第".current($arr)."只猴子是猴王";
 
 }
 
