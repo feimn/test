@@ -25,7 +25,7 @@ class Foo
     }
 }
 
-//工厂模式
+//简单工厂模式
 
 class Factory
 {
@@ -34,6 +34,61 @@ class Factory
         return Foo::getInstance();
     }
 }
+
+// 稍微复杂一点的工厂模式
+
+interface Transport
+{
+    public function go();
+}
+
+class Bike implements  Transport
+{
+    public function go()
+    {
+        echo"bike is slowing";
+    }
+}
+
+class Car implements Transport{
+
+    public function go()
+    {
+        echo"car is fasting";
+    }
+}
+
+class Bus implements Transport
+{
+    public function go()
+    {
+        echo"bus stops at everyone station";
+    }
+}
+
+class Transfactory
+{
+    public static function getInstance($transport)
+    {
+       switch($transport){
+           case 'bike':
+           return new Bike();
+           break;
+
+           case 'car':
+           return new Car();
+           break;
+
+           case 'bus':
+           return new Bus();
+           break;
+
+       }
+    }
+}
+
+$transport = Transfactory::getInstance('bus');
+$transport->go();
 
 // 注册数模式
 
@@ -70,13 +125,13 @@ $obj1 = Registree::get('obj1');
 
 
 
-echo"<pre/>";
-var_dump($obj);
-echo"<hr/>";
-
-echo"<pre/>";
-var_dump($obj1);
-echo"<hr/>";
+//echo"<pre/>";
+//var_dump($obj);
+//echo"<hr/>";
+//
+//echo"<pre/>";
+//var_dump($obj1);
+//echo"<hr/>";
 
 
 
