@@ -88,7 +88,7 @@ class Transfactory
 }
 
 $transport = Transfactory::getInstance('bus');
-$transport->go();
+//$transport->go();
 
 // 注册数模式
 
@@ -105,7 +105,12 @@ class Registree
     public static function get($aliase)
     {
         // 获取某个挂在树上的对象
-         return self::$instance[$aliase];
+        if(isset(self::$instance[$aliase])){
+            return self::$instance[$aliase];
+        }else{
+            echo"你要找的实例不存在哦";
+        }
+
     }
 
     public static function _unset($aliase)
@@ -115,13 +120,34 @@ class Registree
     }
 }
 
- Registree::set('obj',Factory::getInstance());
+class Demo
+{
+    public function test()
+    {
+        echo"看这里";
+    }
+}
+$demo = new Demo();
 
- Registree::set('obj1',Factory::getInstance());
+ Registree::set('de',$demo);
 
-$obj = Registree::get('obj');
+$tree = Registree::get('de');
 
-$obj1 = Registree::get('obj1');
+$tree->test();
+
+Registree::_unset('de');
+
+$tree_two = Registree::get('de');
+
+$tree_two->test();
+
+// Registree::set('obj',Factory::getInstance());
+//
+// Registree::set('obj1',Factory::getInstance());
+//
+//$obj = Registree::get('obj');
+//
+//$obj1 = Registree::get('obj1');
 
 
 
